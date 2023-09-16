@@ -111,7 +111,7 @@ export class CategoriesService {
           const item = removedItems[0];
           if (item) {
             const archivedIndex = this.data.archived.findIndex(v => v.id === categoryId);
-            if (archivedIndex) {
+            if (archivedIndex > -1) {
               if (!this.data.archived[archivedIndex].subcategories) {
                 this.data.archived[archivedIndex].subcategories = [];
               }

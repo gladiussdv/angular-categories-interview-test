@@ -114,7 +114,7 @@ export class CategoriesComponent {
     dialogRef.afterClosed().pipe(
       switchMap(result => {
         if(result) {
-          return this.categoriesService.archiveSubcategory(item.id, item.category_id);
+          return this.categoriesService.archiveSubcategory(item.category_id, item.id);
         }
         return of();
       })
