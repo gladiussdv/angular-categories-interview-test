@@ -1,0 +1,42 @@
+<div class="wrapper">
+  <div>
+    <div class="header">
+      <h2>
+        Categories
+      </h2>
+      <button mat-icon-button (click)="edit()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+    <mat-list role="list">
+      <mat-list-item role="listitem" *ngFor="let item of (categoryList$ | async)" (click)="onSelectCategory(item)" class="item" [activated]="item.id === selectedCategory?.id">
+        <div class="item-content">
+          <span class="text">
+            {{item.name}}
+          </span>
+          <app-category-actions class="action" (edit)="edit(item)" (archive)="archive(item)"/>
+        </div>
+      </mat-list-item>
+    </mat-list>
+  </div>
+  <div>
+    <div class="header">
+      <h2>
+        Subcategories
+      </h2>
+      <button mat-icon-button (click)="editSubcategory()" [disabled]="selectedCategory?.id == null">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+    <mat-list role="list">
+      <mat-list-item role="listitem"  *ngFor="let item of (selectedCategory?.subcategories ?? [])" class="item">
+        <div class="item-content">
+        <span>
+          {{item.name}}
+        </span>
+          <app-category-actions class="action" (edit)="editSubcategory(item)" (archive)="archiveSubcategory(item)"/>
+        </div>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</div>

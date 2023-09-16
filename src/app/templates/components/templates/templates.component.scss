@@ -1,0 +1,19 @@
+.wrapper {
+  .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    background: white;
+    padding: 28px 24px;
+    z-index: 100;
+  }
+  .content {
+    padding: 0 24px;
+    .search {
+      width: 100%;
+      margin: 24px 0 5px;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+$sideWidth: 194px;
+$mainColor: #1F295A;
+
+.toolbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #eee;
+  .sidenav {
+    width: $sideWidth;
+    max-width: $sideWidth;
+    background: $mainColor;
+    padding: 32px 0 32px 24px;
+    .mdc-list-item--activated {
+      background: #ffffff;
+      border-radius: 10px 0 0 10px;
+      .nav-menu-item {
+        color: $mainColor;
+      }
+    }
+    .nav-menu-item {
+      display: flex;
+      flex-direction: row;
+      color: #ffffff;
+    }
+  }
+  .content {
+    background: #ffffff;
+  }
+}
+
+@media (max-width: 598px) {
+  .container {
+    top: 56px;
+  }
+}
