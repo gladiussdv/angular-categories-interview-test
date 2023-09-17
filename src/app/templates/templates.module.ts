@@ -16,6 +16,9 @@ import { EditCategoryDialogComponent } from './components/edit-category-dialog/e
 import { CategoryActionsComponent } from './components/category-actions/category-actions.component';
 import {SharedModule} from '../shared/shared.module';
 import {MatDialogModule} from '@angular/material/dialog';
+import { MobileCategoriesComponent } from './components/mobile-categories/mobile-categories.component';
+import { CategoriesPageComponent } from './components/categories-page/categories-page.component';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 @NgModule({
@@ -23,7 +26,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     TemplatesComponent,
     CategoriesComponent,
     EditCategoryDialogComponent,
-    CategoryActionsComponent
+    CategoryActionsComponent,
+    MobileCategoriesComponent,
+    CategoriesPageComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +41,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     HttpClientModule,
     MatButtonModule,
     SharedModule,
-    MatDialogModule
+    MatDialogModule,
+    MatMenuModule
   ],
   providers: [
     CategoriesService

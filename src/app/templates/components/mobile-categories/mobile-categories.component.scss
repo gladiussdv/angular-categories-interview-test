@@ -1,0 +1,7 @@
+@import "../base-categories/base-categories.component";
+@include list-item;
+.create-button {
+  width: 100%;
+  position: sticky;
+  bottom: 10px;
+}

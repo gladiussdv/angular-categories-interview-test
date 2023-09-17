@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {TemplatesComponent} from './components/templates/templates.component';
 import {TemplatesRouteConst} from './consts/templates-route.const';
 import {CategoriesComponent} from './components/categories/categories.component';
+import {CategoriesPageComponent} from './components/categories-page/categories-page.component';
 
 const routes: Routes = [
   {
@@ -16,11 +17,11 @@ const routes: Routes = [
       },
       {
         path: TemplatesRouteConst.PUBLISHED,
-        component: CategoriesComponent
+        component: CategoriesPageComponent
       },
       {
         path: TemplatesRouteConst.ARCHIVED,
-        component: CategoriesComponent
+        component: CategoriesPageComponent
       }
     ]
   }
