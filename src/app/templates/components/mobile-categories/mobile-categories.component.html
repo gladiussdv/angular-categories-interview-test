@@ -22,7 +22,7 @@
 <div *ngIf="selectedCategory">
   <button mat-button (click)="selectedCategory = undefined">
     <mat-icon>arrow_back</mat-icon>
-    {{selectedCategory?.name}}
+    {{selectedCategory ? selectedCategory.name : ''}}
   </button>
   <mat-list role="list">
     <mat-list-item role="listitem"  *ngFor="let item of (selectedCategory?.subcategories ?? [])" class="item">
