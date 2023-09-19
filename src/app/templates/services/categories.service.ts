@@ -137,9 +137,11 @@ export class CategoriesService {
   }
 
   private filterItems(search: string, array: CategoryModel[]) {
-    const filteredCategories = search ? array.filter(v => v.name.includes(search)) : array;
-    const filteredWithSubcategories = filteredCategories?.map(v => ({...v, subcategories: (search ? v.subcategories?.filter(item => item.name.includes(search)) : v.subcategories) ?? []}));
-    return filteredWithSubcategories ?? [];
+    const filteredWithSubcategories = array?.map(v => ({...v, subcategories: (search ? v.subcategories?.filter(item => item.name?.toLowerCase().includes(search.toLowerCase())) : v.subcategories) ?? []}));
+    const filteredCategories = search ? filteredWithSubcategories.filter(v => {
+      return (v.subcategories && v.subcategories.length > 0) || v.name.toLowerCase().includes(search.toLowerCase())
+    }) : filteredWithSubcategories;
+    return filteredCategories ?? [];
   }
 
   private updateCategoryInArray(id: number, name: string, array?: CategoryModel[]) {
