@@ -21,3 +21,31 @@
     @include list-item;
   }
 }
+.list-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: stretch;
+  overflow: hidden;
+  .list {
+    padding: 0;
+    flex: 1;
+    margin-right: 20px;
+  }
+  .alphabet {
+    position: absolute;
+    right: 0;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    white-space: nowrap;
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: 400;
+
+    color: #A7B0D8;
+    &::first-letter {
+      color: #1F295A;
+    }
+  }
+}

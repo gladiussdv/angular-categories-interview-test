@@ -3,6 +3,7 @@ import {BaseCategoriesComponent} from '../base-categories/base-categories.compon
 import {CategoriesService} from '../../services/categories.service';
 import {MatDialog} from '@angular/material/dialog';
 import {Router} from '@angular/router';
+import {generateAlphabet} from '../../../shared/utils/generateAlphabet';
 
 @Component({
   selector: 'app-categories',
@@ -10,6 +11,8 @@ import {Router} from '@angular/router';
   styleUrls: ['./categories.component.scss']
 })
 export class CategoriesComponent extends BaseCategoriesComponent {
+
+  alphabet = generateAlphabet().join('');
   constructor(
     protected override readonly categoriesService: CategoriesService,
     protected override readonly dialog: MatDialog,
@@ -17,4 +20,6 @@ export class CategoriesComponent extends BaseCategoriesComponent {
   ) {
     super(categoriesService, dialog, router);
   }
+
+  protected readonly length = length;
 }

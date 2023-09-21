@@ -8,16 +8,21 @@
         <mat-icon>add</mat-icon>
       </button>
     </div>
-    <mat-list role="list">
-      <mat-list-item role="listitem" *ngFor="let item of (categoryList$ | async)" (click)="onSelectCategory(item)" class="item" [activated]="item.id === selectedCategory?.id">
-        <div class="item-content">
+    <div class="list-wrapper">
+      <mat-list role="list" class="list">
+        <mat-list-item role="listitem" *ngFor="let item of (categoryList$ | async)" (click)="onSelectCategory(item)" class="item" [activated]="item.id === selectedCategory?.id">
+          <div class="item-content">
           <span class="text">
             {{item.name}}
           </span>
-          <app-category-actions class="action" (edit)="edit(item)" (archive)="archive(item)"/>
-        </div>
-      </mat-list-item>
-    </mat-list>
+            <app-category-actions class="action" (edit)="edit(item)" (archive)="archive(item)"/>
+          </div>
+        </mat-list-item>
+      </mat-list>
+      <div class="alphabet">
+        {{alphabet}}
+      </div>
+    </div>
   </div>
   <div>
     <div class="header">
@@ -28,15 +33,20 @@
         <mat-icon>add</mat-icon>
       </button>
     </div>
-    <mat-list role="list">
-      <mat-list-item role="listitem"  *ngFor="let item of (selectedCategory?.subcategories ?? [])" class="item">
-        <div class="item-content">
-        <span>
-          {{item.name}}
-        </span>
-          <app-category-actions class="action" (edit)="editSubcategory(item)" (archive)="archiveSubcategory(item)"/>
-        </div>
-      </mat-list-item>
-    </mat-list>
+    <div class="list-wrapper">
+      <mat-list role="list" class="list">
+        <mat-list-item role="listitem"  *ngFor="let item of (selectedCategory?.subcategories ?? [])" class="item">
+          <div class="item-content">
+          <span>
+            {{item.name}}
+          </span>
+            <app-category-actions class="action" (edit)="editSubcategory(item)" (archive)="archiveSubcategory(item)"/>
+          </div>
+        </mat-list-item>
+      </mat-list>
+      <div class="alphabet" *ngIf="selectedCategory?.subcategories?.length">
+        {{alphabet}}
+      </div>
+    </div>
   </div>
 </div>
